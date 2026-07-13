@@ -59,6 +59,8 @@ run_forge() {
     powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$command_text"
 }
 
+bash scripts/bootstrap.sh
+
 echo "==> Forge"
 run_forge --version
 
