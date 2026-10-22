@@ -1,4 +1,4 @@
-# Security Policy
+# Política de seguridad
 
 UmbraInsuranceProtocol administra capital compartido y obligaciones de cobertura. Cualquier
 cambio debe tratar los saldos, reservas y claims como contabilidad critica.
@@ -20,6 +20,8 @@ cambio debe tratar los saldos, reservas y claims como contabilidad critica.
 - Una poliza no debe poder reclamarse mas de una vez.
 - Un incidente archivado no debe admitir nuevos claims.
 - Las retiradas pendientes no deben interferir con reservas activas.
+- La emisión y valoración de participaciones deben mantener una relación
+  coherente con el capital atribuible y las obligaciones pendientes.
 
 ## Validacion
 
@@ -31,6 +33,20 @@ La suite publica cubre:
 - claims individuales y por lote;
 - retiradas diferidas de capital;
 - vistas de monitorizacion.
+- proyecciones de producto sin efectos de estado.
+
+```mermaid
+flowchart LR
+  A[Cambio propuesto] --> B[Formato y compilación]
+  B --> C[Pruebas unitarias y de frontera]
+  C --> D[Reconciliación de capital, reservas y participaciones]
+  D --> E[Revisión independiente]
+  E --> F[Integración]
+```
+
+Las pruebas automatizadas no equivalen a una auditoría independiente. Las
+proyecciones de lectura no conceden derechos sobre capital ni sustituyen los
+controles de la operación transaccional.
 
 Comandos recomendados:
 
